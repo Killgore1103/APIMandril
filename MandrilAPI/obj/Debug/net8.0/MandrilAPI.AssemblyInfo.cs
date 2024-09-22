@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MandrilAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f844c482b30aca16a2f9f756304a5e56e5d3886")]
 [assembly: System.Reflection.AssemblyProductAttribute("MandrilAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MandrilAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
