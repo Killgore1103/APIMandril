@@ -1,3 +1,4 @@
+using MandrilAPI.Helpers;
 using MandrilAPI.Models;
 using MandrilAPI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -48,7 +49,7 @@ public class MandrilController : ControllerBase
     {
         var mandril = MandrilDataStore.Current.Mandriles.FirstOrDefault(x => x.Id == mandrilId);
         if (mandril == null){
-            return NotFound("El mandril solicitado no existe");
+            return NotFound(Mensajes.Mandril.NotFound);
         }
 
         mandril.Nombre = mandrilInsert.Nombre;
@@ -62,7 +63,7 @@ public class MandrilController : ControllerBase
     {
         var mandril = MandrilDataStore.Current.Mandriles.FirstOrDefault(x => x.Id == mandrilId);
         if (mandril == null){
-            return NotFound("El mandril solicitado no existe");
+            return NotFound(Mensajes.Mandril.NotFound);
         }
 
         MandrilDataStore.Current.Mandriles.Remove(mandril);

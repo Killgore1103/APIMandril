@@ -1,6 +1,7 @@
 using MandrilAPI.Models;
 using MandrilAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using MandrilAPI.Helpers;
 
 namespace MandrilAPI.Controllers;
 
@@ -13,7 +14,7 @@ public class HabilidadController : ControllerBase
     {
         var mandril = MandrilDataStore.Current.Mandriles.FirstOrDefault(x => x.Id == mandrilId);
         if (mandril == null){
-            return NotFound("El mandril solicitado no existe");
+            return NotFound(Mensajes.Mandril.NotFound);
         }
 
         return Ok(mandril.Habilidades);
@@ -24,13 +25,13 @@ public class HabilidadController : ControllerBase
     {
         var mandril = MandrilDataStore.Current.Mandriles.FirstOrDefault(x => x.Id == mandrilId);
         if (mandril == null){
-            return NotFound("El mandril solicitado no existe");
+            return NotFound(Mensajes.Mandril.NotFound);
         }
 
         var habilidad = mandril.Habilidades?.FirstOrDefault(h => h.Id == habilidadId);
         if (habilidad ==  null)
         {
-            return NotFound("La habilidad solicitada no existe.");
+            return NotFound(Mensajes.Habilidad.NotFound);
         }
 
         return Ok(habilidad);
@@ -41,14 +42,14 @@ public class HabilidadController : ControllerBase
     {
         var mandril = MandrilDataStore.Current.Mandriles.FirstOrDefault(x => x.Id == mandrilId);
         if (mandril == null){
-            return NotFound("El mandril solicitado no existe");
+            return NotFound(Mensajes.Mandril.NotFound);
         }
 
         var habilidadExistente = mandril.Habilidades.FirstOrDefault(h => h.Nombre == habilidadInsert.Nombre);
 
         if (habilidadExistente != null)
         {
-            return BadRequest("Ya existe otra habilidad con el mismo nombre.");
+            return BadRequest(Mensajes.Habilidad.NotFound);
         }
 
         var maxHabilidad = mandril.Habilidades.Max(h => h.Id);
@@ -71,15 +72,18 @@ public class HabilidadController : ControllerBase
     {
         var mandril = MandrilDataStore.Current.Mandriles.FirstOrDefault(x => x.Id == mandrilId);
         if (mandril == null){
-            return NotFound("El mandril solicitado no existe");
+            return NotFound(Mensajes.Mandril.NotFound);
         }
 
         var habilidad = mandril.Habilidades?.FirstOrDefault(h => h.Id == habilidadId);
         if (habilidad == null){
-            return BadRequest("No existe la habilidad solicitada");
+            return BadRequest(Mensajes.Habilidad.NotFound);
         }
 
         var habilidadRepetida = mandril.Habilidades?.FirstOrDefault(h => h.Id != habilidadId && h.Nombre == habilidadInsert.Nombre);
+        if (habilidadRepetida != null){
+            return BadRequest(Mensajes.Habilidad.NombreExistente);
+        }
 
         habilidad.Nombre = habilidadInsert.Nombre;
         habilidad.Potencia = habilidadInsert.Potencia;
@@ -98,7 +102,7 @@ public class HabilidadController : ControllerBase
 
         var habilidad = mandril.Habilidades?.FirstOrDefault(h => h.Id == habilidadId);
         if (habilidad == null){
-            return BadRequest("No existe la habilidad solicitada");
+            return BadRequest(Mensajes.Mandril.NotFound);
         }
         
         mandril.Habilidades?.Remove(habilidad);
