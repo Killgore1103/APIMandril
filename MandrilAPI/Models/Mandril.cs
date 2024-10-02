@@ -6,5 +6,5 @@ public class Mandril
     public string Nombre { get; set; } = "";
     public string Apellido { get; set; } = "";
 
-    public List<Habilidad>? Habilidades { get; set;}
+    public List<Habilidad>? Habilidades { get; set;} = new List<Habilidad>();
 }

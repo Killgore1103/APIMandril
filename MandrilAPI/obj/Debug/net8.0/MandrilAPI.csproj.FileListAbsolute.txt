@@ -31,3 +31,4 @@ C:\Users\Gonza\Desktop\MandrilAPI\MandrilAPI\obj\Debug\net8.0\refint\MandrilAPI.
 C:\Users\Gonza\Desktop\MandrilAPI\MandrilAPI\obj\Debug\net8.0\MandrilAPI.pdb
 C:\Users\Gonza\Desktop\MandrilAPI\MandrilAPI\obj\Debug\net8.0\MandrilAPI.genruntimeconfig.cache
 C:\Users\Gonza\Desktop\MandrilAPI\MandrilAPI\obj\Debug\net8.0\ref\MandrilAPI.dll
+C:\Users\Gonza\Desktop\MandrilAPI\MandrilAPI\obj\Debug\net8.0\MandrilAPI.sourcelink.json
